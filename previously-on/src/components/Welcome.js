@@ -1,31 +1,17 @@
 import React from 'react';
-import axios from 'axios';
-// import 'dotenv';
-// import oauth from './requests/oauth.js';
 
 function Welcome() {
-    // const myOAuth = new oauth();
-    // const token = myOAuth.getAccessToken("yourCode")
-    // console.log(token);
-    authorize();
+    const clientID = "51cd30ed23bb";
+    const redirectUri = "http://vps-9741b19a.vps.ovh.net:3000/auth/get_token";
+
+    const url = `https://www.betaseries.com/authorize?client_id=${clientID}&redirect_uri=${redirectUri}`;
+    console.log(url);
+
     return (
         <div>
-            {/* {token ? <p>Access token: {token}</p> : <p>Error getting access token</p>} */}
+            <a name="auth" type="button" href={url} >AUTH</a>
         </div>
     );
-}
-
-function authorize() {
-
-    let data = {
-        client_id: process.env.clientId,
-        redirect_uri: "http://vps-9741b19a.vps.ovh.net:3000/auth/get_token"
-    }
-
-    axios.post("https://www.betaseries.com/authorize", data)
-    .then(response => console.log(response))
-    .catch(err => console.log(err));
-
 }
 
 export default Welcome;
