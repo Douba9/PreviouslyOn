@@ -12,13 +12,20 @@ export default function GetToken() {
     const code = params.get('code');
     const res = myOAuth.getAccessToken(code);
 
-    res.then(data => setToken(data.access_token));
+    res.then(data => setToken(data.access_token))
+        .catch(err => console.log(err));
 
-    let expires = new Date()
-    expires.setTime(expires.getTime() + (60 * 1000));
-    setCookie('access_token', token, { path: '/',  expires})
+    if (!cookies['access_token']) {
+        let expires = new Date()
+        expires.setTime(expires.getTime() + (60 * 1000));
+        setCookie('access_token', token, { path: '/', expires })
+    }
 
-    window.location = "http://vps-9741b19a.vps.ovh.net:3000/Home";
+    if (cookies['access_token'].length > 0) {
+        window.location = "http://vps-9741b19a.vps.ovh.net:3000/Home";
+    } else {
+        return <p>An error has occurred</p>;
+    }
 
     return (
         <div>
