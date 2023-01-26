@@ -13,10 +13,10 @@ export default function Home() {
             <header>
                 <h1>Home Page</h1>
             </header>
-            <div>
+            <div style={home_style.container}>
                 {series.length > 0 && series.map((s) => {
                     return (
-                        <div style={home_style.container} key={s.id}>
+                        <div style={home_style.cards} key={s.id}>
                             <img style={home_style.poster} alt={s.title} src={s.images.poster}/>
                             <p>Titre : {s.title}</p>
                             <p>Nombre de saisons : {s.seasons}</p>
