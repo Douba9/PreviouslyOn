@@ -1,6 +1,6 @@
 const home_style = {
     poster: {
-        width: "80%"
+        width: "90%"
     },
 
     container: {
