@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useCookies } from 'react-cookie';
 import GetSeries from "./requests/getSeries";
+import addToList from "./requests/addToList";
 import home_style from "./style/home_style";
  
 export default function Home() {
@@ -19,10 +20,6 @@ export default function Home() {
     const handleMouseDown = () => {
         setStartTime(Date.now());
     };
-
-    const addToList = (id) => {
-        console.log(id)
-    }
 
     const handleMouseUp = (s) => {
         if (Date.now() - startTime > 500) {
