@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { useCookies } from 'react-cookie';
 import GetSeries from "./requests/getSeries";
 import home_style from "./style/home_style";
-
+import addBtn from '../img/add.png';
+ 
 export default function Home() {
     const [series, setSeries] = useState([]);
     const [selectedSeries, setSelectedSeries] = useState(null);
@@ -14,7 +15,7 @@ export default function Home() {
             const url = "http://vps-9741b19a.vps.ovh.net:3000/";
             window.location = url;
         }
-    }, [])
+    }, []);
 
     const handleMouseDown = () => {
         setStartTime(Date.now());
@@ -48,6 +49,7 @@ export default function Home() {
                                         <p>Titre : {s.title}</p>
                                         <p>Déscription : {s.description}</p>
                                     </div>
+                                    <img src={addBtn}/>
                                 </div>
                                 {selectedSeries === s && (
                                     <div>
