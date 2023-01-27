@@ -2,13 +2,12 @@ import { useState, useEffect } from "react";
 import { useCookies } from 'react-cookie';
 import GetSeries from "./requests/getSeries";
 import home_style from "./style/home_style";
-import addBtn from '../img/add.png';
  
 export default function Home() {
     const [series, setSeries] = useState([]);
     const [selectedSeries, setSelectedSeries] = useState(null);
     const [startTime, setStartTime] = useState(null);
-    const [cookies, setCookie] = useCookies(['access_token']);
+    const [cookies] = useCookies(['access_token']);
 
     useEffect(() => {
         if (!cookies['access_token']) {
@@ -20,6 +19,10 @@ export default function Home() {
     const handleMouseDown = () => {
         setStartTime(Date.now());
     };
+
+    const addToList = (id) => {
+        console.log(id)
+    }
 
     const handleMouseUp = (s) => {
         if (Date.now() - startTime > 500) {
@@ -49,7 +52,7 @@ export default function Home() {
                                         <p>Titre : {s.title}</p>
                                         <p>Déscription : {s.description}</p>
                                     </div>
-                                    <img src={addBtn}/>
+                                    <button onClick={addToList(s.id)}>Ajouter à ma liste</button>
                                 </div>
                                 {selectedSeries === s && (
                                     <div>

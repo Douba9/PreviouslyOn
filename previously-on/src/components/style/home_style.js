@@ -1,6 +1,6 @@
 const home_style = {
     poster: {
-        width: "50%"
+        width: "80%"
     },
 
     container: {
@@ -17,7 +17,7 @@ const home_style = {
 
     cards: {
         border: "1px solid black",
-        width: "25%"
+        borderRadius: "5px",
     },
 
     header_cards: {
