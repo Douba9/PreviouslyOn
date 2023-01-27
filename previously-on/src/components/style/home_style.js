@@ -4,7 +4,7 @@ const home_style = {
     },
 
     container: {
-        width: "80%",
+        width: "90%",
         marginRight: "auto",
         marginLeft: "auto",
 
