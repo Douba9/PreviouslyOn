@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useCookies } from 'react-cookie';
 import GetSeries from "./requests/getSeries";
 import home_style from "./style/home_style";
 
@@ -6,6 +7,14 @@ export default function Home() {
     const [series, setSeries] = useState([]);
     const [selectedSeries, setSelectedSeries] = useState(null);
     const [startTime, setStartTime] = useState(null);
+    const [cookies, setCookie] = useCookies(['access_token']);
+
+    useEffect(() => {
+        if (!cookies['access_token']) {
+            const url = "http://vps-9741b19a.vps.ovh.net:3000/";
+            window.location = url;
+        }
+    }, [])
 
     const handleMouseDown = () => {
         setStartTime(Date.now());
@@ -24,6 +33,7 @@ export default function Home() {
         <>
             <header>
                 <h1>Home Page</h1>
+                <a href="#">Ma liste</a>
             </header>
             <div style={home_style.container}>
                 {series.length > 0 && series.map((s) => {

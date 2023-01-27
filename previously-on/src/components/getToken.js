@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useCookies } from 'react-cookie'
+import { useCookies } from 'react-cookie';
 import oauth from './requests/oauth.js';
 
 export default function GetToken() {
@@ -16,9 +16,9 @@ export default function GetToken() {
         .catch(err => console.log(err));
 
     if (!cookies['access_token']) {
-        let expires = new Date()
-        expires.setTime(expires.getTime() + (60 * 1000));
-        setCookie('access_token', token, { path: '/', expires })
+        let expires = new Date();
+        expires.setTime(expires.getTime() + (30 * 24 * 60 * 60 * 1000));
+        setCookie('access_token', token, { path: '/', expires });
     }
 
     if (cookies['access_token'].length > 0) {
