@@ -14,6 +14,11 @@ const home_style = {
         gridGap: "1%"
     },
 
+    addToListBtn: {
+        border: "none",
+        borderRadius: "4px",
+        backgroundColor: "green"
+    },
 
     cards: {
         border: "1px solid black",
