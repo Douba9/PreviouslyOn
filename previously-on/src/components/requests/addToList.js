@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useCookies } from 'react-cookie';
 
-async function addToList(id) {
+async function AddToList(id) {
     let [cookies] = useCookies(['access_token']);
 
     console.log(id);
@@ -9,4 +9,4 @@ async function addToList(id) {
     console.log(res);
 }
 
-export default addToList;
+export default AddToList;
