@@ -49,7 +49,7 @@ export default function Home() {
                                         <p>Titre : {s.title}</p>
                                         <p>Déscription : {s.description}</p>
                                     </div>
-                                    <button id={s.id} onClick={() => addToList(s.id)}>Ajouter à ma liste</button>
+                                    <button id={s.id} onClick={() => addToList(s.id, cookies['access_token'])}>Ajouter à ma liste</button>
                                 </div>
                                 {selectedSeries === s && (
                                     <div>
